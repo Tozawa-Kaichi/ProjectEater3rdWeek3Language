@@ -38,6 +38,9 @@ public class GaugeController : MonoBehaviour
     /// <param name="value"></param>
     void ChangeValue(float value)
     {
+        Camera.main.DOColor(Color.black, 5f).OnComplete(() => Debug.Log("ここにシーン変更とか"))
+            .SetEase(Ease.InBounce);
+
         // DOTween.To() を使って連続的に変化させる
         DOTween.To(() => _slider.value, // 連続的に変化させる対象の値 
             x => _slider.value = x, // 変化させた値 x をどう処理するかを書く ここはラムダ式必須
